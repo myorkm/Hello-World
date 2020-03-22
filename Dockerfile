@@ -3,11 +3,11 @@ WORKDIR /app
 
 # copy csproj and restore as distinct layers
 COPY *.sln .
-COPY Hello-World/*.csproj ./hello-world/
+COPY Hello-World/*.csproj ./Hello-World/
 RUN dotnet restore
 
 # copy everything else and build app
-COPY hello-world/. ./hello-world/
+COPY Hello-World/. ./Hello-World/
 WORKDIR /app/hello-world
 RUN dotnet publish -c Release -o out
 
